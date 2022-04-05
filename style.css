@@ -38,3 +38,13 @@
 .qnsans{
     height: 85px;
 }
+
+html{
+    font-size: 2rem;
+
+}
+ .dark_mode{
+    background-color: #322E59;
+    color: #BCBACF;
+}
+

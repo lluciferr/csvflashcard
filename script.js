@@ -10,6 +10,14 @@ const currno = document.querySelector("#currno")
 const selectCard = document.querySelector("#select_card")
 const qnscheck = document.querySelector("#qnscheck")
 const anscheck = document.querySelector("#anscheck")
+const html = document.querySelector('html')
+
+
+var tittle =''
+var data = ''
+var finalarr =[]
+var isqnschecked =''
+var isanschecked =''
 
 var tri= 1
 function temprend(){
@@ -18,35 +26,31 @@ function temprend(){
 }
 
 const handlecheckbok =()=>{
-    if( ! qnscheck.checked ){
+    if( ! qnscheck.checked && !anscheck.checked){
         qns.classList.add('hide_cont')
+        ans.classList.add('hide_cont')
 		// temprend()
     }
-    else if (! anscheck.checked ){
-        ans.classList.add('hide_cont')
+    else if (qnscheck.checked && anscheck.checked ){
+        qns.classList.remove('hide_cont')
+        ans.classList.remove('hide_cont')
     //    temprend()
     }
-    else{
+    else if( ! qnscheck.checked && anscheck.checked){
+        qns.classList.add('hide_cont')
         ans.classList.remove('hide_cont')
+        // temprend()
+    }
+    else if(qnscheck.checked && ! anscheck.checked){
         qns.classList.remove('hide_cont')
+        ans.classList.add('hide_cont')
         // temprend()
     }
    
 }
 
-const handlecheckbokk =()=>{
-    console.log(`triggered ${tri}`)
-    tri ++
-}
-
 qnscheck.addEventListener('change',handlecheckbok)
 anscheck.addEventListener('change',handlecheckbok)
-
-var tittle =''
-var data = ''
-var finalarr =[]
-var isqnschecked =''
-var isanschecked =''
 
 function makingarray(longstr){
 
@@ -64,6 +68,33 @@ function makingarray(longstr){
     totalno.innerText = finalarr.length
     // localStorage.setItem("arr",finalarr.toString())
 }
+
+document.addEventListener('keypress',(e)=>{
+    // console.log(e.key);
+   switch(e.key){
+       case 's':
+    	case 'S':{
+            toggleShow()
+            console.log("show");
+            break
+        }
+        case 'n':
+        case 'N':{
+            gotonext()
+            console.log("next");
+            break
+        }
+        case 'g':
+        case 'G':{
+            selectCard.focus()
+            break
+        }
+        // default:{
+        //     selectCard.blur()
+        // }
+
+   }
+})
 
 csv.addEventListener("change",(event)=>{
     const files = event.target.files
@@ -94,18 +125,19 @@ csv.addEventListener("change",(event)=>{
     }
 })
 
+function toggleShow(){
+        if( ! qnscheck.checked ){
+            qns.classList.toggle('hide_cont')
+        }
+        if (! anscheck.checked ){
+            ans.classList.toggle('hide_cont')
+    
+        }
+        //toggling feature
 
-show.addEventListener('click',()=>{
-    if( ! qnscheck.checked ){
-        qns.classList.toggle('hide_cont')
-    }
-    if (! anscheck.checked ){
-        ans.classList.toggle('hide_cont')
+}
 
-    }
-    //toggling feature
-   
-})
+show.addEventListener('click',toggleShow)
 
 deck.addEventListener('change',(e)=>{
 	// console.log("change happening");
@@ -141,17 +173,19 @@ const render =()=>{
     }
 }
 
-next.addEventListener("click",()=>{
-    // ans.classList.add("hide_cont")    26march
+function gotonext(){
+        // ans.classList.add("hide_cont")    26march
+    
+        if( ! qnscheck.checked ){
+            qns.classList.add('hide_cont')
+        }
+        if (! anscheck.checked ){
+            ans.classList.add('hide_cont')
+        }
+        render()
+}
 
-    if( ! qnscheck.checked ){
-        qns.classList.add('hide_cont')
-    }
-    if (! anscheck.checked ){
-        ans.classList.add('hide_cont')
-    }
-    render()
-})
+next.addEventListener("click",gotonext)
 
 const useLocalStorage =()=>{
 
@@ -169,6 +203,11 @@ if (localStorage.length != 0){
 }
 
 }
+
+const toggledark =()=>{
+    html.classList.toggle('dark_mode')
+}
+document.querySelector('#darkbtn').addEventListener('click',toggledark)
 
 useLocalStorage()
 
