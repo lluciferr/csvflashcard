@@ -27,6 +27,7 @@ const randomOrNext = () => {
   } else {
     getrandom.classList.add("hide_cont");
     next.classList.remove("hide_cont");
+    currno.innerText = randomQnsNum + 1;
   }
 };
 random.addEventListener("change", randomOrNext);
