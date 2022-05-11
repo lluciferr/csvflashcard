@@ -27,7 +27,6 @@ const randomOrNext = () => {
   } else {
     getrandom.classList.add("hide_cont");
     next.classList.remove("hide_cont");
-    currno.innerText = randomQnsNum + 1;
   }
 };
 random.addEventListener("change", randomOrNext);
@@ -36,6 +35,7 @@ const randomQns = () => {
   let randomQnsNum = Math.ceil( (Math.random() * finalarr.length * 10) % finalarr.length)
   qns.innerText = finalarr[randomQnsNum][0]      
   ans.innerText = finalarr[randomQnsNum][1]
+  currno.innerText = randomQnsNum + 1;
 };
 
 getrandom.addEventListener("click", randomQns);
