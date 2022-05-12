@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CSV Flashcard</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="./script.js"></script>
   </head>
@@ -14,8 +14,8 @@
       <input type="button" value="darkbtn" id="darkbtn" />
     </div>
     <div class="generic_container">
-      <div id="datadiv">data will be shown here</div>
-      <select name="deck" id="deck">
+      <!-- <div id="datadiv">data will be shown here</div> -->
+      <select name="deck" id="deck" class="select_deck">
         <option value="fine">select any one</option>
       </select>
       <input type="number" id="select_card" size="5" />
@@ -24,13 +24,17 @@
       <label for="random">random</label>
       <input type="checkbox" name="random" id="random" />
     </div>
-    <div class="generic_container spacebetn">
+    <div class="generic_container spacebetn " >
       <h3 id="totalno">total</h3>
-      <div>
-        <label for="qnscheck">shwo qns</label>
-        <input type="checkbox" name="qnscheck" id="qnscheck" />
-        <label for="anscheck">shwo ans</label>
-        <input type="checkbox" name="anscheck" id="anscheck" />
+      <div class="qns_container_option">
+        <div class="div">
+          <label for="qnscheck">show qns</label>
+          <input type="checkbox" name="qnscheck" id="qnscheck" />
+        </div>
+        <div class="div">
+          <label for="anscheck">show ans</label>
+          <input type="checkbox" name="anscheck" id="anscheck" />
+        </div>
       </div>
       <h3 id="currno">currno</h3>
     </div>
@@ -43,7 +47,7 @@
         <!-- <h3 id="ans" class="hide_ans" >answer</h3> -->
       </div>
     </div>
-    <div class="generic_container spacebetn">
+    <div class="generic_container spacebetn buttons_container">
       <input type="button" id="showhide" value="show/hide" />
       <input type="button" id="next" value="next" />
       <input type="button" value="random" id="getrandom" />

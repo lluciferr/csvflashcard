@@ -31,6 +31,7 @@ const randomOrNext = () => {
 };
 random.addEventListener("change", randomOrNext);
 randomOrNext()
+
 const randomQns = () => {
   let randomQnsNum = Math.ceil( (Math.random() * finalarr.length * 10) % finalarr.length)
   qns.innerText = finalarr[randomQnsNum][0]      
@@ -98,6 +99,11 @@ document.addEventListener("keypress", (e) => {
       gotonext();
       console.log("next");
       break;
+    }
+    case "r":
+    case "R":{
+        randomQns();
+        break
     }
     case "g":
     case "G": {
