@@ -51,11 +51,19 @@ html {
     margin-top: 55px;
 }
 
+
+
 @media screen and (max-width: 720px) {
   .select_deck {
       width: 145px;
   }
-  .qns_container_option{
-      border: 4px solid salmon;
-  }
+  
+}
+
+@media screen and (max-width: 400px) {
+    .qns_container_option label{
+        font-size: 25px;
+
+    }
+    
 }
