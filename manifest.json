@@ -1,36 +1,16 @@
 {
-    "name":"Quick Arithmetic",
+    "name":"CSV FC",
     "start_url":".",
     "background_color":"#6079f2",
     "theme_color":"#6079f2",
     "display":"standalone",
     "icons":[
         {
-            "src":"./assets/icon192.png",
+            "src":"./icon192.png",
             "sizes":"192x192",
             "type":"image/png"
         }
     ],
-    "shortcuts": [
-        {
-          "name": "How's weather today?",
-          "short_name": "Today",
-          "description": "View weather information for today",
-          "url": "/today.html",
-          "icons": [{ "src":"./assets/icon192.png",
-            "sizes":"192x192",
-            "type":"image/png" }]
-        },
-        {
-          "name": "How's weather tomorrow?",
-          "short_name": "Tomorrow",
-          "description": "View weather information for tomorrow",
-          "url": "/tomorrow.html",
-          "icons": [{ "src":"./assets/icon192.png",
-            "sizes":"192x192",
-            "type":"image/png" }]
-        }
-        
-      ],
+    
       "scope":"./"
 }
